@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
+import { Providers } from "@/providers";
 
 export const metadata: Metadata = {
   title: "NAGHDANEH | نقدانه",
@@ -14,11 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <ThemeProvider theme={theme}>
+    <html lang="fa" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Providers>
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
