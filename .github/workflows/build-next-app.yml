@@ -1,0 +1,22 @@
+name: 🚀 Build Next.js App
+on:
+  push:
+    branches:
+      - "**" # matches every branch
+jobs:
+  build:
+    name: 🎉 Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: ✨ Install Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: ➕ Install dependencies with Bun
+        run: bun install --frozen-lockfile
+
+      - name: 🔨 Build Project
+        run: bun run build

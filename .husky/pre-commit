@@ -1,0 +1,17 @@
+# Check if branch protection is enabled
+echo ">> Checking branch name..."
+if [[ -z $SKIP_BRANCH_PROTECTION ]]; then
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    PROTECTED_BRANCHES="^(main|master)$"
+
+    if [[ $BRANCH =~ $PROTECTED_BRANCHES ]]; then
+        echo ">> Direct commits to the $BRANCH branch are not allowed. Please choose a new branch name."
+        exit 1
+    fi
+else
+    echo ">> Skipping branch protection."
+fi
+
+# Run prettier and linter on staged files
+echo ">> Run prettier and linter on staged files ..."
+bun lint-staged
