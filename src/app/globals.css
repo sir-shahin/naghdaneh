@@ -4,14 +4,14 @@
 }
 
 @font-face {
-  font-family: 'ISX';
-  src: url('../fonts/isx-regular.ttf') format('truetype');
+  font-family: "ISX";
+  src: url("../fonts/isx-regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'ISX';
-  src: url('../fonts/isx-medium.ttf') format('truetype');
+  font-family: "ISX";
+  src: url("../fonts/isx-medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
