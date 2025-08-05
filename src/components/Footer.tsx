@@ -9,21 +9,21 @@ import { Link } from "./common";
 export const Footer = () => {
   return (
     <Container>
-      <Stack direction="row" justifyContent="space-between">
-        <Stack direction={"row"} gap={2}>
+      <Stack display={{ xs: "none", md: "flex" }} direction="row" py={1} justifyContent="space-between" fontSize={14}>
+        <Stack direction={"row"} gap={4}>
           <Link color="black" underline="none" href={"#"}>
             درباره ما
           </Link>
           <Link color="black" underline="none" href={"#"}>
-            درباره ما
+            ارتباط با ما
           </Link>
         </Stack>
-        <Stack direction={"row"} gap={2}>
+        <Stack direction={"row"} gap={4}>
           <Link color="black" underline="none" href={"#"}>
-            درباره ما
+            حریم خصوصی
           </Link>
           <Link color="black" underline="none" href={"#"}>
-            درباره ما
+            قوانین و مقررات
           </Link>
         </Stack>
       </Stack>
