@@ -9,8 +9,10 @@ import bg from "@/assets/images/mountain.jpg";
 export default function Home() {
   return (
     <MainContainer sx={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover" }}>
-      <Container sx={{ display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Stack textAlign="center" mt={2}>
+      <Container
+        sx={{ display: "flex", minHeight: "inherit", flex: 1, justifyContent: "center", alignItems: "center" }}
+      >
+        <Stack textAlign="center" mt={{ xs: 2, md: 0.5 }}>
           <Typography gutterBottom variant="h4" fontWeight="bold" component="h1">
             نقدانه: همه چیز زیر ذره بین شما
           </Typography>
