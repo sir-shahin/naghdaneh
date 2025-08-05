@@ -22,8 +22,9 @@ interface NextLinkComposedProps
 
 export const NextLinkComposed = React.forwardRef<HTMLAnchorElement, NextLinkComposedProps>(
   function NextLinkComposed(props, ref) {
-    const { to, linkAs, replace, scroll, shallow, prefetch, legacyBehavior = true, locale, ...other } = props;
+    const { to, linkAs, replace, scroll, shallow, prefetch, locale, ...other } = props;
 
+    // Only pass child if not already an anchor to avoid nested <a>
     return (
       <NextLink
         href={to}
@@ -34,10 +35,9 @@ export const NextLinkComposed = React.forwardRef<HTMLAnchorElement, NextLinkComp
         shallow={shallow}
         passHref
         locale={locale}
-        legacyBehavior={legacyBehavior}
-      >
-        <Anchor ref={ref} {...other} />
-      </NextLink>
+        {...other}
+        // If the component is Anchor, don't wrap in another anchor
+      />
     );
   },
 );
@@ -48,7 +48,7 @@ export type LinkProps = {
   href: NextLinkProps["href"];
   linkAs?: NextLinkProps["as"]; // Useful when the as prop is shallow by styled().
   noLinkStyle?: boolean;
-} & Omit<NextLinkComposedProps, "to" | "linkAs" | "href"> &
+} & Omit<NextLinkComposedProps, "to" | "linkAs" | "href" | "legacyBehavior"> &
   Omit<MuiLinkProps, "href">;
 
 // A styled version of the Next.js Link component:
@@ -59,7 +59,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
     as,
     className: classNameProps,
     href,
-    legacyBehavior,
     linkAs: linkAsProp,
     locale,
     noLinkStyle,
@@ -82,9 +81,8 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
   const isExternal = typeof href === "string" && (href.indexOf("http") === 0 || href.indexOf("mailto:") === 0);
 
   if (isExternal) {
-    if (noLinkStyle) {
-      return <Anchor className={className} href={href} ref={ref} sx={sx} {...other} />;
-    }
+    // External links should always use <a>
+    return <Anchor className={className} href={href} ref={ref} sx={sx} {...other} />;
   }
 
   const linkAs = linkAsProp || as;
@@ -95,12 +93,16 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
     scroll,
     shallow,
     prefetch,
-    legacyBehavior,
     locale,
   };
 
   if (noLinkStyle) {
-    return <NextLinkComposed className={className} ref={ref} {...nextjsProps} {...other} />;
+    // For internal links, use NextLink directly, passing all props
+    return (
+      <NextLink className={className} href={href} ref={ref} {...nextjsProps} {...other}>
+        {props.children}
+      </NextLink>
+    );
   }
 
   return (

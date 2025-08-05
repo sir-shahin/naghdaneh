@@ -21,7 +21,7 @@ export default function TopAppBar() {
         </Box>
 
         <Button sx={{ display: { xs: "none", md: "flex" } }}>
-          <UserIcon sx={{ color: "black", mr: 1.5 }} />
+          <UserIcon sx={{ color: "black", ml: 1.5 }} />
           <Typography color="black" fontWeight={500}>
             ورود | عضویت
           </Typography>
