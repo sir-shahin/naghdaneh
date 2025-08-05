@@ -15,10 +15,7 @@ const noBorderStyle = {
 
 export const Search = () => {
   return (
-    <Stack direction={{ xs: "column-reverse", md: "row" }} gap={1} mb="10vh">
-      <Button variant="contained" color="primary" sx={{ flex: 0.25, px: 4, py: 1.2 }}>
-        جست و جو
-      </Button>
+    <Stack direction={{ md: "row" }} gap={1} mb="10vh">
       <Box
         display={"flex"}
         flex={0.75}
@@ -26,14 +23,6 @@ export const Search = () => {
         borderRadius={3}
         justifyContent={"space-between"}
       >
-        <TextField size="small" select sx={{ ...noBorderStyle, flex: 0.4 }} value={0}>
-          <MenuItem disabled value="0">
-            دسته بندی
-          </MenuItem>
-          <MenuItem value={10}>فیلم و سینما</MenuItem>
-          <MenuItem value={10}>کافه و رستوران</MenuItem>
-        </TextField>
-
         <TextField
           size="small"
           sx={{
@@ -43,7 +32,19 @@ export const Search = () => {
           }}
           placeholder="عنوان فیلم، کتاب، آهنگ یا..."
         />
+
+        <TextField size="small" select sx={{ ...noBorderStyle, flex: 0.4 }} value={0}>
+          <MenuItem disabled value="0">
+            دسته بندی
+          </MenuItem>
+          <MenuItem value={10}>فیلم و سینما</MenuItem>
+          <MenuItem value={10}>کافه و رستوران</MenuItem>
+        </TextField>
       </Box>
+
+      <Button variant="contained" color="primary" sx={{ flex: 0.25, px: 4, py: 1.2 }}>
+        جست و جو
+      </Button>
     </Stack>
   );
 };

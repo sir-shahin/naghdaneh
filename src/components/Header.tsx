@@ -14,22 +14,22 @@ export default function TopAppBar() {
   return (
     <AppBar sx={{ bgcolor: "white" }} elevation={0}>
       <Toolbar component={Container}>
+        <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
+          نقدانه
+        </Typography>
+
         <Box sx={{ display: { md: "none" } }}>
-          <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2 }}>
+          <IconButton size="large" edge="start" aria-label="menu" sx={{ ml: 1 }}>
             <MenuIcon />
           </IconButton>
         </Box>
 
         <Button sx={{ display: { xs: "none", md: "flex" } }}>
-          <UserIcon sx={{ color: "black", ml: 1.5 }} />
           <Typography color="black" fontWeight={500}>
             ورود | عضویت
           </Typography>
+          <UserIcon sx={{ color: "black", mr: 1.5 }} />
         </Button>
-
-        <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
-          نقدانه
-        </Typography>
       </Toolbar>
     </AppBar>
   );
