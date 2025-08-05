@@ -8,7 +8,7 @@ import { Link } from "./common";
 
 export const Footer = () => {
   return (
-    <Container>
+    <Container component="footer">
       <Stack display={{ xs: "none", md: "flex" }} direction="row" py={1} justifyContent="space-between" fontSize={14}>
         <Stack direction={"row"} gap={4}>
           <Link color="black" underline="none" href={"#"}>
