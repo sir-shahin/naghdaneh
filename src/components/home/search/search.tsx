@@ -6,9 +6,16 @@ import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 
+const noBorderStyle = {
+  direction: "rtl",
+  "& .MuiOutlinedInput-notchedOutline": { border: "none" },
+  "& .MuiOutlinedInput-root": { boxShadow: "none" },
+  "& .MuiInputBase-root": { boxShadow: "none" },
+};
+
 export const Search = () => {
   return (
-    <Stack direction={{ xs: "column-reverse", md: "row" }} gap={1}>
+    <Stack direction={{ xs: "column-reverse", md: "row" }} gap={1} mb="10vh">
       <Button variant="contained" color="primary" sx={{ flex: 0.25, px: 4, py: 1.2 }}>
         جست و جو
       </Button>
@@ -19,18 +26,7 @@ export const Search = () => {
         borderRadius={3}
         justifyContent={"space-between"}
       >
-        <TextField
-          size="small"
-          select
-          sx={{
-            direction: "rtl",
-            flex: 0.4,
-            "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-            "& .MuiOutlinedInput-root": { boxShadow: "none" },
-            "& .MuiInputBase-root": { boxShadow: "none" },
-          }}
-          value={0}
-        >
+        <TextField size="small" select sx={{ ...noBorderStyle, flex: 0.4 }} value={0}>
           <MenuItem disabled value="0">
             دسته بندی
           </MenuItem>
@@ -41,12 +37,9 @@ export const Search = () => {
         <TextField
           size="small"
           sx={{
-            direction: "rtl",
+            ...noBorderStyle,
             flex: 0.6,
-            minWidth: 240,
-            "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-            "& .MuiOutlinedInput-root": { boxShadow: "none" },
-            "& .MuiInputBase-root": { boxShadow: "none" },
+            minWidth: { md: 240 },
           }}
           placeholder="عنوان فیلم، کتاب، آهنگ یا..."
         />

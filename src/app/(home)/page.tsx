@@ -2,8 +2,8 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { Search } from "@/components/home";
-import MainContainer from "@/components/MainContainer";
+import { Categories, Search } from "@/components/home";
+import MainContainer from "@/components/mainContainer";
 import bg from "@/assets/images/mountain.jpg";
 
 export default function Home() {
@@ -19,6 +19,8 @@ export default function Home() {
           </Typography>
           {/* search component in home */}
           <Search />
+          {/* categories */}
+          <Categories />
         </Stack>
       </Container>
     </MainContainer>
