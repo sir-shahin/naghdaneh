@@ -3,6 +3,11 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF4400",
+    },
+  },
   typography: {
     fontFamily: "ISX, Arial, sans-serif",
   },
