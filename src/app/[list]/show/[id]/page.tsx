@@ -1,7 +1,9 @@
 import React from "react";
 
+import Stack from "@mui/material/Stack";
+
 import MainContainer from "@/components/mainContainers";
-import { Info } from "@/components/show";
+import { Comments, Info } from "@/components/show";
 import bg from "@/assets/images/mountain.jpg";
 
 export default function Show() {
@@ -9,7 +11,10 @@ export default function Show() {
     <MainContainer
       sx={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "top center" }}
     >
-      <Info />
+      <Stack flex={1}>
+        <Info />
+        <Comments />
+      </Stack>
     </MainContainer>
   );
 }
