@@ -2,14 +2,15 @@
 
 import React, { useState } from "react";
 
+import QuoteIcon from "@mui/icons-material/FormatQuote";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+import { SVGPeople } from "@/assets/images/people";
 import { SVGUserOct } from "@/assets/images/user-oct";
-import { SVGUserProfile } from "@/assets/images/user-profile";
 
 import { CreateComment } from "./createComment";
 
@@ -49,7 +50,7 @@ export const Comments = () => {
             sx={{ fontWeight: activeTab === 2 ? "400" : "bold", py: 1 }}
             onClick={() => handleActivator(2)}
             variant={activeTab === 2 ? "contained" : "outlined"}
-            startIcon={<SVGUserProfile sx={{ ml: 1 }} />}
+            startIcon={<SVGPeople sx={{ ml: 1 }} />}
           >
             نظر کاربران
           </Button>
@@ -58,6 +59,7 @@ export const Comments = () => {
         {/* todo: we sould have three components here */}
         <Container maxWidth="md">
           <Box bgcolor="#00000010" borderRadius={5} textAlign={"center"} p={5}>
+            <QuoteIcon sx={{ transform: "rotate(180deg)", fill: "#00000030" }} fontSize="large" />
             <Typography color="#00000040">جایگاه اولین نقد برای توست</Typography>
           </Box>
         </Container>
