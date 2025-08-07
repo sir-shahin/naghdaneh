@@ -13,6 +13,7 @@ import { SVGPeople } from "@/assets/images/people";
 import { SVGUserOct } from "@/assets/images/user-oct";
 
 import { CreateComment } from "./createComment";
+import { SiteExpert } from "./siteExpert";
 
 export const Comments = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -21,7 +22,7 @@ export const Comments = () => {
     setActiveTab(index);
   };
   return (
-    <Box component={"section"} bgcolor="white" py={5}>
+    <Box component={"section"} bgcolor="#fdfcfa" py={5}>
       <Container>
         <Stack direction={"row"} maxWidth={680} mx={"auto"} gap={1} mb={5}>
           <Button
@@ -58,6 +59,9 @@ export const Comments = () => {
 
         {/* todo: we sould have three components here */}
         <Container maxWidth="md">
+          {activeTab === 0 ? <SiteExpert /> : ""}
+
+          {/* No comment */}
           <Box bgcolor="#00000010" borderRadius={5} textAlign={"center"} p={5}>
             <QuoteIcon sx={{ transform: "rotate(180deg)", fill: "#00000030" }} fontSize="large" />
             <Typography color="#00000040">جایگاه اولین نقد برای توست</Typography>

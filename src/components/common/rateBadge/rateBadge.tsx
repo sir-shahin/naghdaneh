@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 
 import Box from "@mui/material/Box";
-import { SvgIconProps } from "@mui/material/SvgIcon";
 import Typography from "@mui/material/Typography";
 
 type Props = {
