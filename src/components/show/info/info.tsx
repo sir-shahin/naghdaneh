@@ -17,9 +17,20 @@ export const Info = () => {
   return (
     <Container component={"section"}>
       <Grid container py={5}>
-        <Grid size={{ xs: 12, md: 4 }} display="flex" px={4}>
+        <Grid size={{ xs: 12, md: 4 }} display="flex" px={5}>
           <Box position="relative" flex={1} height="inherit" minHeight={360}>
-            <Image src={img80} alt="Info Image" fill style={{ objectFit: "contain", borderRadius: 5 }} />
+            <Box
+              sx={{
+                borderRadius: 5,
+                boxShadow: 15,
+                overflow: "hidden",
+                width: "100%",
+                height: "100%",
+                position: "relative",
+              }}
+            >
+              <Image src={img80} alt="Info Image" fill style={{ objectFit: "cover" }} />
+            </Box>
           </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 8 }} py={5}>
@@ -36,13 +47,6 @@ export const Info = () => {
             </Stack>
           </Stack>
 
-          <Typography mb={3} pl={{ md: 5 }}>
-            جان ویک 3 یا جان ویک: بخش ۳ – پارابلوم، فیلمی اکشن مهیج و نئو-نوآر، به نویسندگی دریک کولستاد و کارگردانی چاد
-            استاهلسکی است. این فیلم سومین قسمت از سری فیلم های جان ویک است. کیانو ریوز، هلی بری، ایان مک‌شین و لارنس
-            فیشبرن به ایفای نقش می‌پردازند. آدمکش افسانه‌ای “جان ویک”؛ بعد از آنکه برای سرش جایزه ۱۴ میلیون دلاری
-            گذاشته‌اند...
-          </Typography>
-
           <Stack direction="row" mb={3} gap={4}>
             <Stack direction={"row"}>
               <Typography fontSize={13}>ژانرها:</Typography>
@@ -57,6 +61,13 @@ export const Info = () => {
               </Typography>
             </Stack>
           </Stack>
+
+          <Typography mb={3} pl={{ md: 5 }}>
+            جان ویک 3 یا جان ویک: بخش ۳ - پارابلوم، فیلمی اکشن مهیج و نئو-نوآر، به نویسندگی دریک کولستاد و کارگردانی چاد
+            استاهلسکی است. این فیلم سومین قسمت از سری فیلم های جان ویک است. کیانو ریوز، هلی بری، ایان مک‌شین و لارنس
+            فیشبرن به ایفای نقش می‌پردازند. آدمکش افسانه‌ای “جان ویک”؛ بعد از آنکه برای سرش جایزه ۱۴ میلیون دلاری
+            گذاشته‌اند...
+          </Typography>
 
           <Stack direction={"row"} flexWrap={"wrap"} justifyContent={{ xs: "center", md: "start" }} gap={3}>
             <RateBadge title="کارشناسان" rate={7} icon={<SVGUserProfile />} />

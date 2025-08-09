@@ -9,7 +9,7 @@ import { SVGMessageTick } from "@/assets/images/message-tick";
 
 export const SiteExpert = () => {
   return (
-    <Box bgcolor={"white"} borderRadius={5} p={5} mb={3}>
+    <Box bgcolor={"white"} borderRadius={5} p={{ xs: 2, md: 5 }} mb={3}>
       <Box display={"flex"} justifyContent={"space-between"} mb={4}>
         <Stack direction={"row"}>
           <SVGMessageTick />

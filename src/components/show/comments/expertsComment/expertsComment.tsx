@@ -13,7 +13,7 @@ import { SVGMessageTick } from "@/assets/images/message-tick";
 
 export const ExpertsComment = () => {
   return (
-    <Box bgcolor={"white"} borderRadius={5} p={5} mb={3}>
+    <Box bgcolor={"white"} borderRadius={5} p={{ xs: 1.5, md: 5 }} mb={3}>
       <Box display={"flex"} justifyContent={"space-between"} mb={4}>
         <Stack direction={"row"}>
           <SVGMessageTick />
@@ -37,7 +37,7 @@ export const ExpertsComment = () => {
           >
             کارشناس
           </Typography>
-          <Grid container>
+          <Grid container flexDirection={{ xs: "column-reverse", md: "row" }}>
             <Grid size={{ md: 9 }}>
               <Stack direction={"row"} mb={2} justifyContent={"space-between"}>
                 <Stack direction={"row"}>

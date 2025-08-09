@@ -14,7 +14,7 @@ import { SVGStar } from "@/assets/images/star";
 
 export const UsersComment = () => {
   return (
-    <Box bgcolor={"white"} borderRadius={5} p={5} mb={3}>
+    <Box bgcolor={"white"} borderRadius={5} p={{ xs: 2, md: 5 }} mb={3}>
       <Box display={"flex"} justifyContent={"space-between"} mb={4}>
         <Stack direction={"row"}>
           <SVGMessageTick />
@@ -34,7 +34,7 @@ export const UsersComment = () => {
               </Box>
             </Grid>
             <Grid size={{ md: 9 }}>
-              <Stack direction={"row"} mb={2}>
+              <Stack direction={"row"} mb={2} p={1}>
                 <Typography fontWeight="bold">علی علیزاده</Typography>
                 <Typography color="gray" px={2} fontSize={12}>
                   دیروز

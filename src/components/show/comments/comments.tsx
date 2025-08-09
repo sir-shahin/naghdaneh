@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import QuoteIcon from "@mui/icons-material/FormatQuote";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
 
 import { SVGPeople } from "@/assets/images/people";
@@ -13,19 +13,26 @@ import { SVGUserOct } from "@/assets/images/user-oct";
 import { SVGUserProfile } from "@/assets/images/user-profile";
 
 import { CreateComment } from "./createComment";
-import { EmptyComment } from "./emptyComment";
 import { ExpertsComment } from "./expertsComment";
 import { SiteExpert } from "./siteExpert";
 import { UsersComment } from "./usersComment";
 
 export const Comments = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const handleActivator = (index: number) => {
     setActiveTab(index);
   };
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [activeTab]);
+
   return (
-    <Box component={"section"} bgcolor="#fdfcfa" py={5}>
+    <Box ref={sectionRef} component={"section"} bgcolor="#fdfcfa" py={5}>
       <Container disableGutters>
         <Stack
           position={"sticky"}
@@ -72,15 +79,16 @@ export const Comments = () => {
         </Stack>
 
         <Container maxWidth="md">
-          {activeTab === 0 ? (
-            <SiteExpert />
-          ) : activeTab === 1 ? (
-            <ExpertsComment />
-          ) : activeTab === 2 ? (
-            <UsersComment />
-          ) : (
-            ""
-          )}
+          {/* Fade effect for tab content */}
+          <Fade in={activeTab === 0} timeout={1000} unmountOnExit>
+            <div>{activeTab === 0 && <SiteExpert />}</div>
+          </Fade>
+          <Fade in={activeTab === 1} timeout={1000} unmountOnExit>
+            <div>{activeTab === 1 && <ExpertsComment />}</div>
+          </Fade>
+          <Fade in={activeTab === 2} timeout={1000} unmountOnExit>
+            <div>{activeTab === 2 && <UsersComment />}</div>
+          </Fade>
 
           {/* No comment */}
           {/* <EmptyComment /> */}

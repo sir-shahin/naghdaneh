@@ -9,7 +9,7 @@ import bg from "@/assets/images/mountain.jpg";
 export default function Show() {
   return (
     <MainContainer
-      sx={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "top center" }}
+      sx={{ backgroundImage: `url(${bg.src})`, backgroundPosition: "top center", backgroundSize: "100% 200vh" }}
     >
       <Stack flex={1}>
         <Info />
