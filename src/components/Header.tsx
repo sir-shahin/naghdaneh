@@ -10,12 +10,18 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import { ROUTES } from "@/routes";
+
+import { Link } from "./common";
+
 export default function TopAppBar() {
   return (
     <AppBar sx={{ bgcolor: "white" }} elevation={0}>
       <Toolbar component={Container}>
         <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
-          نقدانه
+          <Link href={ROUTES.INDEX} underline="none" color="inherit">
+            نقدانه
+          </Link>
         </Typography>
 
         <Box sx={{ display: { md: "none" } }}>
