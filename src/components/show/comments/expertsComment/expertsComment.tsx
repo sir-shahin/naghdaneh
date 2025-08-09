@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { RateBadge, ShowRate } from "@/components/common";
+import { ShowRate } from "@/components/common";
 import userimage from "@/assets/images/000/user.jpg";
 import { SVGMessageTick } from "@/assets/images/message-tick";
 
@@ -62,8 +62,8 @@ export const ExpertsComment = () => {
             </Grid>
 
             <Grid size={{ md: 3 }}>
-              <Box borderRadius={50} overflow={"hidden"} width={100} height={100} mx={"auto"}>
-                <Image src={userimage.src} alt="user profile" width={100} height={100} />
+              <Box borderRadius={50} overflow={"hidden"} width={130} height={130} mx={"auto"}>
+                <Image src={userimage.src} alt="user profile" width={130} height={130} />
               </Box>
             </Grid>
           </Grid>
