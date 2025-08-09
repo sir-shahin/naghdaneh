@@ -6,7 +6,15 @@ import { CategoryLink } from "./categoryLink";
 
 export const Categories = () => {
   return (
-    <Stack flexWrap={"wrap"} justifyContent={"center"} gap={{ xs: 1, md: 2.8 }} mb={2} direction={"row"} maxWidth={500}>
+    <Stack
+      flexWrap={"wrap"}
+      justifyContent={"center"}
+      columnGap={{ xs: 1, md: 3 }}
+      rowGap={{ xs: 1, md: 1.5 }}
+      mb={2}
+      direction={"row"}
+      maxWidth={500}
+    >
       <CategoryLink />
       <CategoryLink />
       <CategoryLink />
