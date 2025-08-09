@@ -1,18 +1,19 @@
 import React from "react";
 
-import BookIcon from "@mui/icons-material/MenuBookOutlined";
-import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "@/components/common";
+import { SVGFilm } from "@/assets/images/categories/film";
 
-export const CategoryLink = () => {
+import { ROUTES } from "@/routes";
+
+export const CategoryLink = ({ color }: { color: string }) => {
   return (
     <ButtonBase
       component={Link}
-      href="#"
+      href={ROUTES.FILTER("film")}
       underline="none"
       sx={{
         display: "flex",
@@ -21,18 +22,18 @@ export const CategoryLink = () => {
         width: 100,
         height: 100,
         borderRadius: 50,
-        border: "2px solid #FF4400",
+        border: `2px solid ${color}`,
         transition: "background 0.2s",
         "&:hover": {
-          background: "#FF4400",
+          background: color,
           "& .MuiTypography-root": { color: "#fff" },
           "& .MuiSvgIcon-root": { color: "#fff" },
         },
       }}
     >
       <Stack>
-        <BookIcon sx={{ mx: "auto", color: "#FF4400" }} />
-        <Typography color="#FF4400">کتاب</Typography>
+        <SVGFilm sx={{ mx: "auto", color: color }} />
+        <Typography color={color}>فیلم</Typography>
       </Stack>
     </ButtonBase>
   );
