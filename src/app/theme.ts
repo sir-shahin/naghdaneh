@@ -1,8 +1,13 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF4400",
+    },
+  },
   typography: {
     fontFamily: "ISX, Arial, sans-serif",
   },
@@ -20,4 +25,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);

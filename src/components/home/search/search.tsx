@@ -15,7 +15,7 @@ const noBorderStyle = {
 
 export const Search = () => {
   return (
-    <Stack direction={{ md: "row" }} gap={1} mb="10vh">
+    <Stack direction={{ md: "row" }} gap={1} mb="9vh">
       <Box
         display={"flex"}
         flex={0.75}
