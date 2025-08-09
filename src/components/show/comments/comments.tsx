@@ -27,7 +27,10 @@ export const Comments = () => {
 
   useEffect(() => {
     if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY !== 0) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   }, [activeTab]);
 
