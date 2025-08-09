@@ -59,9 +59,9 @@ export const Info = () => {
           </Stack>
 
           <Stack direction={"row"} flexWrap={"wrap"} justifyContent={{ xs: "center", md: "start" }} gap={3}>
-            <RateBadge title="کارشناس" rate={7} icon={<SVGUserOct />} />
+            <RateBadge title="کارشناسان" rate={7} icon={<SVGUserProfile />} />
             <RateBadge title="کاربران" rate={6} icon={<SVGPeople />} />
-            <RateBadge title="نقدانه" rate={3} icon={<SVGUserProfile />} />
+            <RateBadge title="نقدانه" rate={3} icon={<SVGUserOct />} />
           </Stack>
         </Grid>
       </Grid>
