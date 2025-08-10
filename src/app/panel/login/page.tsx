@@ -7,9 +7,9 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-import { MobileField } from "@/components/auth";
-import { Code, CodeField } from "@/components/auth/codeField";
 import MainContainer from "@/components/mainContainers";
+import { MobileField } from "@/components/panel";
+import { Code, CodeField } from "@/components/panel/codeField";
 
 import { ROUTES } from "@/routes";
 
