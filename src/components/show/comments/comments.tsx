@@ -82,16 +82,9 @@ export const Comments = () => {
         </Stack>
 
         <Container maxWidth="md">
-          {/* Fade effect for tab content */}
-          <Fade in={activeTab === 0} timeout={1000} unmountOnExit>
-            <div>{activeTab === 0 && <SiteExpert />}</div>
-          </Fade>
-          <Fade in={activeTab === 1} timeout={1000} unmountOnExit>
-            <div>{activeTab === 1 && <ExpertsComment />}</div>
-          </Fade>
-          <Fade in={activeTab === 2} timeout={1000} unmountOnExit>
-            <div>{activeTab === 2 && <UsersComment />}</div>
-          </Fade>
+          {activeTab === 0 && <SiteExpert />}
+          {activeTab === 1 && <ExpertsComment />}
+          {activeTab === 2 && <UsersComment />}
 
           {/* No comment */}
           {/* <EmptyComment /> */}
