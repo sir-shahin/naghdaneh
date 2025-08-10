@@ -4,12 +4,12 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import MenuItem from "@mui/material/MenuItem";
-import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import { Card } from "@/components/common";
+import { Pagination } from "@/components/common/pagination/pagination";
 
 export const Show = () => {
   return (

@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
 
 import { SVGPeople } from "@/assets/images/people";
