@@ -1,4 +1,7 @@
+"use client";
+
 import * as React from "react";
+import { useEffect, useState } from "react";
 
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -15,8 +18,24 @@ import { ROUTES } from "@/routes";
 import { Link } from "./common";
 
 export default function TopAppBar() {
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY === 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <AppBar sx={{ bgcolor: "white" }} elevation={0}>
+    <AppBar
+      sx={{
+        bgcolor: isTop ? "transparent" : "white",
+        transition: "background-color 0.3s",
+      }}
+      elevation={0}
+    >
       <Toolbar component={Container}>
         <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
           <Link href={ROUTES.INDEX} underline="none" color="inherit">

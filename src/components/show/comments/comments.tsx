@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
 
 import { SVGPeople } from "@/assets/images/people";
@@ -27,7 +26,10 @@ export const Comments = () => {
 
   useEffect(() => {
     if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY !== 0) {
+        sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   }, [activeTab]);
 
@@ -79,16 +81,9 @@ export const Comments = () => {
         </Stack>
 
         <Container maxWidth="md">
-          {/* Fade effect for tab content */}
-          <Fade in={activeTab === 0} timeout={1000} unmountOnExit>
-            <div>{activeTab === 0 && <SiteExpert />}</div>
-          </Fade>
-          <Fade in={activeTab === 1} timeout={1000} unmountOnExit>
-            <div>{activeTab === 1 && <ExpertsComment />}</div>
-          </Fade>
-          <Fade in={activeTab === 2} timeout={1000} unmountOnExit>
-            <div>{activeTab === 2 && <UsersComment />}</div>
-          </Fade>
+          {activeTab === 0 && <SiteExpert />}
+          {activeTab === 1 && <ExpertsComment />}
+          {activeTab === 2 && <UsersComment />}
 
           {/* No comment */}
           {/* <EmptyComment /> */}
