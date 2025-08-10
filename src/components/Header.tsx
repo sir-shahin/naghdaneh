@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,6 +20,7 @@ import { Link } from "./common";
 
 export default function TopAppBar() {
   const [isTop, setIsTop] = useState(true);
+  const path = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,12 +51,14 @@ export default function TopAppBar() {
           </IconButton>
         </Box>
 
-        <Button sx={{ display: { xs: "none", md: "flex" } }}>
-          <Typography color="black" fontWeight={500}>
-            ورود | عضویت
-          </Typography>
-          <UserIcon sx={{ color: "black", mr: 1.5 }} />
-        </Button>
+        {path !== "/auth/login" && (
+          <Button LinkComponent={Link} href={ROUTES.LOGIN} sx={{ display: { xs: "none", md: "flex" } }}>
+            <Typography color="black" fontWeight={500}>
+              ورود | عضویت
+            </Typography>
+            <UserIcon sx={{ color: "black", mr: 1.5 }} />
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   );
