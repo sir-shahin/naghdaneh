@@ -1,13 +1,37 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
+import { MobileField } from "@/components/auth";
+import { Code, CodeField } from "@/components/auth/codeField";
 import MainContainer from "@/components/mainContainers";
 
+import { ROUTES } from "@/routes";
+
 export default function Login() {
+  const [codes, setCodes] = useState<Code>(["", "", "", ""]);
+  const [steps, setSteps] = useState(0);
+  const [phone, setPhone] = useState("");
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (phone.length === 11) {
+      setSteps(1);
+    }
+  }, [phone]);
+
+  React.useEffect(() => {
+    if (codes.filter((c) => c != "").length === 4) {
+      // todo: login
+      router.push(ROUTES.INDEX);
+    }
+  }, [codes]);
+
   return (
     <MainContainer>
       <Box display={"flex"} flex={1} justifyContent={"center"} alignItems={"center"} pb={5}>
@@ -16,24 +40,13 @@ export default function Login() {
             نقدانه
           </Typography>
 
-          <Typography gutterBottom>شمارهٔ موبایل خود را وارد کنید</Typography>
-          <Typography mb={3.5} color="textDisabled" variant="subtitle2">
-            کد تأیید به این شماره پیامک خواهد شد.با ورود شرایط استفاده از خدمات و حریم خصوصی نقدانه را می‌پذیرم.
-          </Typography>
-
-          {/* <MobileField /> */}
-
-          <CodeField />
+          {steps === 0 ? (
+            <MobileField setSteps={setSteps} phone={phone} setPhone={setPhone} />
+          ) : (
+            <CodeField codes={codes} setCodes={setCodes} phone={phone} setSteps={setSteps} />
+          )}
         </Container>
       </Box>
     </MainContainer>
   );
 }
-
-const MobileField = () => (
-  <TextField fullWidth placeholder="شماره موبایل" type="tel" sx={{ "& input::placeholder": { textAlign: "right" } }} />
-);
-
-const CodeField = () => {
-  return <></>;
-};
