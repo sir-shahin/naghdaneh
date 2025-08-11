@@ -9,9 +9,11 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { RateBadge, ShowRate } from "@/components/common";
-import userimage from "@/assets/images/000/user.jpg";
+import { getRandomColor } from "@/utils";
+import userimage0 from "@/assets/images/000/user.jpg";
 import { SVGMessageTick } from "@/assets/images/message-tick";
 import { SVGStar } from "@/assets/images/star";
+import userimage from "@/assets/images/user.svg";
 
 export const UsersComment = () => {
   return (
@@ -27,11 +29,17 @@ export const UsersComment = () => {
           <ShowRate title="مجموع امتیازات" rate={5} />
         </Box>
 
-        {[1, 1, 1].map((comment, index) => (
+        {[1, 2, 3].map((comment, index) => (
           <Box key={index} border={"1px solid #00000010"} borderRadius={3} p={3} mb={2.5}>
             <Grid container>
               <Grid size={{ md: 3 }}>
-                <Box borderRadius={50} overflow={"hidden"} width={100} height={100}>
+                <Box
+                  borderRadius={50}
+                  overflow={"hidden"}
+                  width={100}
+                  height={100}
+                  bgcolor={getRandomColor(comment * 190)}
+                >
                   <Image src={userimage.src} alt="user profile" width={100} height={100} />
                 </Box>
               </Grid>
