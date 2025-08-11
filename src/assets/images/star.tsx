@@ -11,7 +11,7 @@ export const SVGStar: React.FC<SvgIconProps> = (props) => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        fill="none"
+        fill={!!props.fill ? props.fill : "none"}
       />
     </SvgIcon>
   );
