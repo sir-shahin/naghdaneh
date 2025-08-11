@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -7,6 +9,8 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+
+import { CodeField } from "@/components/panel";
 
 import { Stars } from "./stars";
 
@@ -60,6 +64,8 @@ export const RateForm = ({ onClose, rating, setRating }: Props) => {
       <Button color="primary" variant="contained" fullWidth sx={{ py: 1.5 }}>
         بزن بریم
       </Button>
+
+      {/* <CodeField phone="" setSteps={() => {}} codes={["", "", "", ""]} setCodes={() => {}} /> */}
     </Container>
   );
 };
