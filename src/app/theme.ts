@@ -31,6 +31,22 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {},
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        icon: {
+          right: "auto",
+          left: 8,
+        },
+        select: {
+          paddingLeft: 38,
+        },
+      },
+    },
   },
 });
 
