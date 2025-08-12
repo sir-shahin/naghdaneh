@@ -61,16 +61,16 @@ export default function TopAppBar() {
             </IconButton>
           </Box>
 
-          {path !== "/panel/login" && (
+          {path !== ROUTES.LOGIN && (
             <Stack direction={"row"} sx={{ display: { xs: "none", md: "flex" } }}>
               <Button endIcon={<UserIcon sx={{ color: "black", mr: 1.5 }} />} LinkComponent={Link} href={ROUTES.LOGIN}>
                 <Typography color="black" fontWeight={500}>
                   ورود | عضویت
                 </Typography>
               </Button>
-              <Button size="large" endIcon={<MedalIcon sx={{ mr: 1 }} />} color="primary">
+              {/* <Button size="large" endIcon={<MedalIcon sx={{ mr: 1 }} />} color="primary">
                 <Typography fontWeight={500}>خرید اشتراک</Typography>
-              </Button>
+              </Button> */}
             </Stack>
           )}
         </Toolbar>
