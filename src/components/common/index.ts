@@ -3,3 +3,4 @@ export * from "./rateBadge";
 export * from "./showRate";
 export * from "./card";
 export * from "./pagination";
+export * from "./sidebar";

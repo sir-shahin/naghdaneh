@@ -11,16 +11,23 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 import { ROUTES } from "@/routes";
 
-import { Link } from "./common";
+import { Link, SidebarMenu } from "./common";
 
 export default function TopAppBar() {
+  const iOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const [isTop, setIsTop] = useState(true);
   const path = usePathname();
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,35 +38,46 @@ export default function TopAppBar() {
   }, []);
 
   return (
-    <AppBar
-      sx={{
-        bgcolor: isTop ? "transparent" : "white",
-        transition: "background-color 0.3s",
-      }}
-      elevation={0}
-    >
-      <Toolbar component={Container}>
-        <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
-          <Link href={ROUTES.INDEX} underline="none" color="inherit">
-            نقدانه
-          </Link>
-        </Typography>
+    <>
+      <AppBar
+        sx={{
+          bgcolor: isTop ? "transparent" : "white",
+          transition: "background-color 0.3s",
+        }}
+        elevation={0}
+      >
+        <Toolbar component={Container}>
+          <Typography textAlign="right" fontWeight="bold" variant="h5" sx={{ flexGrow: 1 }} color="black">
+            <Link href={ROUTES.INDEX} underline="none" color="inherit">
+              نقدانه
+            </Link>
+          </Typography>
 
-        <Box sx={{ display: { md: "none" } }}>
-          <IconButton size="large" edge="start" aria-label="menu" sx={{ ml: 1 }}>
-            <MenuIcon />
-          </IconButton>
-        </Box>
+          <Box sx={{ display: { md: "none" } }}>
+            <IconButton onClick={toggleDrawer(true)} size="large" edge="start" aria-label="menu" sx={{ ml: 1 }}>
+              <MenuIcon />
+            </IconButton>
+          </Box>
 
-        {path !== "/auth/login" && (
-          <Button LinkComponent={Link} href={ROUTES.LOGIN} sx={{ display: { xs: "none", md: "flex" } }}>
-            <Typography color="black" fontWeight={500}>
-              ورود | عضویت
-            </Typography>
-            <UserIcon sx={{ color: "black", mr: 1.5 }} />
-          </Button>
-        )}
-      </Toolbar>
-    </AppBar>
+          {path !== "/auth/login" && (
+            <Button LinkComponent={Link} href={ROUTES.LOGIN} sx={{ display: { xs: "none", md: "flex" } }}>
+              <Typography color="black" fontWeight={500}>
+                ورود | عضویت
+              </Typography>
+              <UserIcon sx={{ color: "black", mr: 1.5 }} />
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={open}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+      >
+        <SidebarMenu />
+      </SwipeableDrawer>
+    </>
   );
 }
