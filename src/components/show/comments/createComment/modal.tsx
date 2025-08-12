@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { RateForm } from "./rateForm";
 
 export const CommentFormModal = () => {
+  const primaryColor = process.env.NEXT_PUBLIC_PRIMARY_COLOR;
   const [open, setOpen] = React.useState(false);
   const iOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const [rating, setRating] = React.useState(0);
@@ -29,7 +30,7 @@ export const CommentFormModal = () => {
       >
         <Box
           sx={{
-            border: "2px solid #FF4400",
+            border: `2px solid ${primaryColor}`,
             borderRadius: "10px 10px 10px 0",
             display: "flex",
             width: 30,
