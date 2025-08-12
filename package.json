@@ -23,6 +23,7 @@
     "axios": "^1.11.0",
     "immer": "^10.1.1",
     "next": "15.4.5",
+    "nextjs-toploader": "^3.8.16",
     "notistack": "^3.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
