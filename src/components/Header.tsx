@@ -6,11 +6,13 @@ import { usePathname } from "next/navigation";
 
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
+import MedalIcon from "@mui/icons-material/MilitaryTech";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -59,13 +61,17 @@ export default function TopAppBar() {
             </IconButton>
           </Box>
 
-          {path !== "/auth/login" && (
-            <Button LinkComponent={Link} href={ROUTES.LOGIN} sx={{ display: { xs: "none", md: "flex" } }}>
-              <Typography color="black" fontWeight={500}>
-                ورود | عضویت
-              </Typography>
-              <UserIcon sx={{ color: "black", mr: 1.5 }} />
-            </Button>
+          {path !== ROUTES.LOGIN && (
+            <Stack direction={"row"} sx={{ display: { xs: "none", md: "flex" } }}>
+              <Button endIcon={<UserIcon sx={{ color: "black", mr: 1.5 }} />} LinkComponent={Link} href={ROUTES.LOGIN}>
+                <Typography color="black" fontWeight={500}>
+                  ورود | عضویت
+                </Typography>
+              </Button>
+              {/* <Button size="large" endIcon={<MedalIcon sx={{ mr: 1 }} />} color="primary">
+                <Typography fontWeight={500}>خرید اشتراک</Typography>
+              </Button> */}
+            </Stack>
           )}
         </Toolbar>
       </AppBar>
