@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import InfoOutlinedIcon from "@mui/icons-material/ArrowOutward";
+import InfoOutlinedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
