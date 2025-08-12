@@ -31,11 +31,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {},
-      },
-    },
     MuiSelect: {
       styleOverrides: {
         icon: {
