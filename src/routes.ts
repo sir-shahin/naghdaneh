@@ -4,4 +4,5 @@ export const ROUTES = {
   LIST: (cat: string) => `/${cat}`,
   SHOW: (cat: string, id: number) => `/${cat}/show/${id}`,
   LOGIN: `/panel/login`,
+  PANEL: `/panel`,
 };

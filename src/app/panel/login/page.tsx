@@ -28,7 +28,7 @@ export default function Login() {
   React.useEffect(() => {
     if (codes.filter((c) => c != "").length === 4) {
       // todo: login
-      router.push(ROUTES.INDEX);
+      router.push(ROUTES.PANEL);
     }
   }, [codes]);
 
