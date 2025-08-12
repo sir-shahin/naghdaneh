@@ -1,12 +1,14 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 
+import { PanelMenu } from "@/components/panel";
 import bg from "@/assets/images/mountain.jpg";
 
-export default function RootLayout({
+export default function PanelLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -20,8 +22,10 @@ export default function RootLayout({
       sx={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "top" }}
     >
       <Box bgcolor={"white"} mt={15} minHeight={"100vh"}>
-        <Grid container top={-70} position={"relative"}>
-          <Grid size={3}></Grid>
+        <Grid container component={Container} top={-70} position={"relative"}>
+          <Grid size={3} px={3}>
+            <PanelMenu />
+          </Grid>
           <Grid size={9}>{children}</Grid>
         </Grid>
       </Box>
