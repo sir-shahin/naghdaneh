@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import InfoIcon from "@mui/icons-material/InfoOutline";
 import LocalPoliceIcon from "@mui/icons-material/LocalPoliceOutlined";
@@ -7,6 +6,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccountsOutlined";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import OutputIcon from "@mui/icons-material/Output";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -27,19 +27,11 @@ export const SidebarMenu = () => {
         display={"flex"}
         mb={4}
       >
-        <Box
-          sx={{
-            borderRadius: 50,
-            overflow: "hidden",
-            width: 80,
-            height: 80,
-            mb: -5,
-            boxShadow: 4,
-            border: "3px solid white",
-          }}
-        >
-          <Image src={userimage0.src} alt="user profile" width={80} height={80} />
-        </Box>
+        <Avatar
+          alt="کاربر"
+          src={userimage0.src}
+          sx={{ width: 90, height: 90, border: "3px solid white", mb: -5, boxShadow: 4 }}
+        />
       </Box>
 
       <Typography textAlign={"center"}>علی علیزاده</Typography>

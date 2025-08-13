@@ -21,8 +21,8 @@ export default function PanelLayout({
       flex={1}
       sx={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "top" }}
     >
-      <Box bgcolor={"white"} mt={15} minHeight={"100vh"}>
-        <Grid container component={Container} top={-70} position={"relative"}>
+      <Box bgcolor={"white"} mt={"12em"} minHeight={"100vh"}>
+        <Grid container component={Container} top={"-10em"} position={"relative"}>
           <Grid size={3} px={3}>
             <PanelMenu />
           </Grid>

@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 
 import QuoteIcon from "@mui/icons-material/FormatQuote";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Grid from "@mui/material/Grid";
@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { ShowRate } from "@/components/common";
+import { getRandomColor } from "@/utils";
 import userimage from "@/assets/images/000/user.jpg";
 import { SVGMessageTick } from "@/assets/images/message-tick";
 
@@ -64,9 +65,11 @@ export const ExpertsComment = () => {
               </Grid>
 
               <Grid size={{ md: 3 }}>
-                <Box borderRadius={50} overflow={"hidden"} width={130} height={130} mx={"auto"}>
-                  <Image src={userimage.src} alt="user profile" width={130} height={130} />
-                </Box>
+                <Avatar
+                  alt="کاربر"
+                  src={userimage.src}
+                  sx={{ width: 130, height: 130, bgcolor: getRandomColor(1 * 190), m: "auto" }}
+                />
               </Grid>
             </Grid>
           </Box>
