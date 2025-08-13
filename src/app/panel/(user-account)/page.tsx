@@ -7,6 +7,8 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
+import { WideCard } from "@/components/common";
+
 export default function Account() {
   return (
     <Box py={2}>
@@ -28,6 +30,8 @@ export default function Account() {
       </Stack>
 
       <Box py={2}>
+        {/* <WideCard /> */}
+        {/* empty */}
         <Box borderRadius={4} border={"1px solid #ddd"} bgcolor={"#eee"} py={8} textAlign={"center"}>
           <SmsIcon fontSize="large" color="disabled" />
           <Typography color="#aaa"> هنوز نظر ارزشمندت رو نگفتی!</Typography>
