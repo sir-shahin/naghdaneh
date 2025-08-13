@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 
+import LogoutIcon from "@mui/icons-material/LogoutOutlined";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccountsOutlined";
 import MedalIcon from "@mui/icons-material/MilitaryTechOutlined";
 import ReceiptionIcon from "@mui/icons-material/ReceiptLongRounded";
@@ -23,6 +26,13 @@ export const PanelMenu = () => {
         <NavItem title="تنظیمات" icon={ManageAccountsIcon} href="#" />
         <NavItem title="خرید اشتراک" icon={MedalIcon} href="#" />
         <NavItem title="مالی" icon={ReceiptionIcon} href="#" />
+        <NavItem
+          title="خروج"
+          icon={LogoutIcon}
+          onClick={() => {
+            alert("logout");
+          }}
+        />
       </List>
     </Box>
   );
