@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 
 import HeartIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Grid from "@mui/material/Grid";
@@ -33,15 +33,11 @@ export const UsersComment = () => {
           <Box key={index} border={"1px solid #00000010"} borderRadius={3} p={3} mb={2.5}>
             <Grid container>
               <Grid size={{ md: 3 }}>
-                <Box
-                  borderRadius={50}
-                  overflow={"hidden"}
-                  width={100}
-                  height={100}
-                  bgcolor={getRandomColor(comment * 190)}
-                >
-                  <Image src={userimage.src} alt="user profile" width={100} height={100} />
-                </Box>
+                <Avatar
+                  alt="کاربر"
+                  src={userimage.src}
+                  sx={{ width: 100, height: 100, bgcolor: getRandomColor(comment * 190), m: "auto" }}
+                />
               </Grid>
               <Grid size={{ md: 9 }}>
                 <Stack direction={"row"} mb={2} p={1}>

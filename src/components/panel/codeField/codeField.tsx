@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 
 import ArrowBack from "@mui/icons-material/ArrowBack";

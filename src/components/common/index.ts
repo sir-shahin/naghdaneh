@@ -4,3 +4,5 @@ export * from "./showRate";
 export * from "./card";
 export * from "./pagination";
 export * from "./sidebar";
+export * from "./levelIcon";
+export * from "./wideCard";
