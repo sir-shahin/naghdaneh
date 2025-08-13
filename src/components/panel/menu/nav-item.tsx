@@ -11,7 +11,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 interface Props {
-  icon: React.ComponentType<any>;
+  icon: React.ElementType;
   title: string;
   href?: string;
   target?: string;
