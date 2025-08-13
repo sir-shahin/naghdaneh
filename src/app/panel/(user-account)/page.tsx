@@ -7,6 +7,18 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
+import { Pagination, WideCard } from "@/components/common";
+
+const filterCategory = [
+  {
+    key: "سینما",
+    value: 10,
+  },
+  {
+    key: "سفر",
+    value: 2,
+  },
+];
 export default function Account() {
   return (
     <Box py={2}>
@@ -19,21 +31,26 @@ export default function Account() {
         <Box display={"flex"} alignItems={"center"} gap={1}>
           <Typography>دسته‌بندی:</Typography>
           <TextField select value={1} size="small">
-            <MenuItem value="1">همه دسته‌ها</MenuItem>
-            <MenuItem value="4">سینما</MenuItem>
-            <MenuItem value="2">سفر</MenuItem>
-            <MenuItem value="3">تفریح</MenuItem>
+            <MenuItem value={1}>همه دسته‌ها</MenuItem>
+            {filterCategory.map((item) => (
+              <MenuItem key={item.value} value={item.value}>
+                {item.key}
+              </MenuItem>
+            ))}
           </TextField>
         </Box>
       </Stack>
 
       <Box py={2}>
-        {/* <WideCard /> */}
-        {/* empty */}
-        <Box borderRadius={4} border={"1px solid #ddd"} bgcolor={"#eee"} py={8} textAlign={"center"}>
-          <SmsIcon fontSize="large" color="disabled" />
-          <Typography color="#aaa"> هنوز نظر ارزشمندت رو نگفتی!</Typography>
+        <WideCard />
+        <Box display={"flex"} justifyContent={"center"}>
+          <Pagination count={10} color="primary" />
         </Box>
+        {/* empty */}
+        {/* <Box borderRadius={4} border={"1px solid #ddd"} bgcolor={"#eee"} py={8} textAlign={"center"}>
+          <SVGMessages fontSize="large" color="disabled" />
+          <Typography color="#aaa"> هنوز نظر ارزشمندت رو نگفتی!</Typography>
+        </Box> */}
       </Box>
     </Box>
   );
