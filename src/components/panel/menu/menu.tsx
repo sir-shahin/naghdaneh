@@ -23,7 +23,15 @@ import { NavItem } from "./nav-item";
 
 export const PanelMenu = () => {
   return (
-    <Box component="aside" bgcolor={"white"} borderRadius={5} p={2} border={"1px solid #ddd"}>
+    <Box
+      component="aside"
+      position="sticky"
+      top={70}
+      bgcolor={"white"}
+      borderRadius={5}
+      p={2}
+      border={"1px solid #ddd"}
+    >
       <LevelIcon />
       <Avatar
         alt="کاربر"

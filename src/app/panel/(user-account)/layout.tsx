@@ -23,10 +23,10 @@ export default function PanelLayout({
     >
       <Box bgcolor={"white"} mt={"12em"} minHeight={"100vh"}>
         <Grid container component={Container} top={"-10em"} position={"relative"}>
-          <Grid size={3} px={3}>
+          <Grid size={3} pl={3} display={{ xs: "none", md: "block" }}>
             <PanelMenu />
           </Grid>
-          <Grid size={9}>{children}</Grid>
+          <Grid size={{ md: 9 }}>{children}</Grid>
         </Grid>
       </Box>
     </Stack>
