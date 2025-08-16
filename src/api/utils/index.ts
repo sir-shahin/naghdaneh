@@ -1,10 +1,11 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { enqueueSnackbar } from "notistack";
 
 import { useGlobalStore } from "@/stores";
 
 import { API_ENDPOINTS } from "../config";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const handleApiError = (error: any) => {
   if (axios.isCancel(error) || error.message === "Request aborted") {
     console.warn(error);
