@@ -1,1 +1,1 @@
-export default function () {}
+export * from "./auth";
