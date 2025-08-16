@@ -8,6 +8,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import theme from "@/app/theme";
 
+import { APIProvider } from "./api-provider";
+
 export function Providers(props: { children: React.ReactNode }) {
   return (
     <AppRouterCacheProvider options={{ enableCssLayer: true }}>
@@ -19,12 +21,12 @@ export function Providers(props: { children: React.ReactNode }) {
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         />
 
-        {/* <APIProvider>
-            <AuthProvider> */}
-        {/* The rest of the application */}
-        {props.children}
-        {/* </AuthProvider>
-          </APIProvider> */}
+        <APIProvider>
+          {/*    <AuthProvider> */}
+          {/* The rest of the application */}
+          {props.children}
+          {/* </AuthProvider>*/}
+        </APIProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>
   );
