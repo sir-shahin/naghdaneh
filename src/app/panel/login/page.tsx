@@ -11,22 +11,31 @@ import MainContainer from "@/components/mainContainers";
 import { MobileField } from "@/components/panel";
 import { Code, CodeField } from "@/components/panel/codeField";
 
+import { useRequestCode } from "@/api";
 import { ROUTES } from "@/routes";
 
 export default function Login() {
-  const [codes, setCodes] = useState<Code>(["", "", "", ""]);
+  const [codes, setCodes] = useState<Code>(["", "", "", "", ""]);
   const [steps, setSteps] = useState(0);
   const [phone, setPhone] = useState("");
   const router = useRouter();
+  const requestCodeMutation = useRequestCode();
 
   React.useEffect(() => {
     if (phone.length === 11) {
-      setSteps(1);
+      requestCodeMutation.mutateAsync(
+        { mobile: phone },
+        {
+          onSuccess: () => {
+            setSteps(1);
+          },
+        },
+      );
     }
   }, [phone]);
 
   React.useEffect(() => {
-    if (codes.filter((c) => c != "").length === 4) {
+    if (codes.filter((c) => c != "").length === 5) {
       // todo: login
       router.push(ROUTES.PANEL);
     }
@@ -40,10 +49,10 @@ export default function Login() {
             نقدانه
           </Typography>
 
-          {steps === 0 ? (
-            <MobileField setSteps={setSteps} phone={phone} setPhone={setPhone} />
-          ) : (
+          {steps === 1 ? (
             <CodeField codes={codes} setCodes={setCodes} phone={phone} setSteps={setSteps} />
+          ) : (
+            <MobileField setSteps={setSteps} phone={phone} setPhone={setPhone} />
           )}
         </Container>
       </Box>

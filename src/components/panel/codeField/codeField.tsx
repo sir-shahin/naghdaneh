@@ -23,6 +23,7 @@ export const CodeField = ({ codes, setCodes, phone, setSteps }: Props) => {
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
   ];
 
   const handleChange = (idx: number, value: string) => {
@@ -30,7 +31,7 @@ export const CodeField = ({ codes, setCodes, phone, setSteps }: Props) => {
     const newCodes = [...codes];
     newCodes[idx] = value;
     setCodes(newCodes);
-    if (value && idx < 3) {
+    if (value && idx < 4) {
       inputsRef[idx + 1].current?.focus();
     }
   };
@@ -43,7 +44,7 @@ export const CodeField = ({ codes, setCodes, phone, setSteps }: Props) => {
 
   const handleBack = () => {
     setSteps(0);
-    setCodes(["", "", "", ""]);
+    setCodes(["", "", "", "", ""]);
   };
 
   return (
