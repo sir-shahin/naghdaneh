@@ -12,7 +12,8 @@ export const handleApiError = (error: any) => {
     return "";
   }
 
-  if (error?.response?.status === 401 && !error?.config?.url?.includes(API_ENDPOINTS.LOGIN())) {
+  // if (error?.response?.status === 401 && !error?.config?.url?.includes(API_ENDPOINTS.LOGIN())) {
+  if (error?.response?.status === 401) {
     useGlobalStore.getState().logout();
     return "Unauthenticated";
   }
